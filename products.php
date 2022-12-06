@@ -51,12 +51,8 @@ if (isset($_POST['add_product'])) {
 
 
 <div class="pt-4">
-    <div class="p-4 bg-white">
-        <?php
-        //  echo $productName;
-        ?>
-    </div>
-    <div class="row w-100 p-0 m-0" style="padding-top: 40px;">
+   
+    <div class="row w-100 p-0 m-0 mt-4" style="padding-top: 40px;">
         <div class="col-9">
             <div class="pb-4">
                 <section class="row" style="padding-left: 20px; padding-right: 20px;">

@@ -49,15 +49,21 @@ if (isset($_POST['edit_submit'])) {
             if ($edit_image_size < 524288) {
                 $err = 'Valid Image';
 
-                $img = rand(1, 999999) . '-' . $edit_image_name;
+                $imgEx = explode(" ",$edit_image_name);
+                $imgJoin = join('-',$imgEx);
+
+                $img = rand(1, 999999) . '-' . $imgJoin;
 
                 $update_sql = "UPDATE `products` SET `name`='$edit_name',`bought`='$edit_bought',`sold`='$edit_sold',`image`='$img' WHERE id='$product_id'";
 
               $update= $conn->query($update_sql); 
 
-                if($update){
-                    unlink($image);
+                if($update){                   
                     move_uploaded_file($edit_image_tmp, "images/" . $img);
+                    if($image != ''){
+                        $file_path = "images/" . $image;
+                        unlink($file_path);
+                    }
                     header('Location:products.php');
                    
                 }else {
@@ -87,7 +93,7 @@ if (isset($_POST['edit_submit'])) {
                 <div class="row bg-dark text-white pt-4 pb-4">
                     <div class="col-sm-4">
                         <div class="bg-white rounded">
-                            <img class="img-fluid" src="<?php echo "images/" . $product_image; ?>" alt="<?php echo $product_name; ?>">
+                            <img class="img-fluid" src="<?php echo "images/" . $image; ?>" alt="<?php echo $product_name; ?>">
                         </div>
                     </div>
                     <div class="col-sm-8">
