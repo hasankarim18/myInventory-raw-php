@@ -1,0 +1,51 @@
+.navbar.dahsboard-nav .navbar-nav li.nav-item:nth-child(1){
+border-left: 1px solid gray;
+}
+.navbar.dahsboard-nav .navbar-nav li.nav-item  {
+    border-right: 1px solid gray;
+    padding: 5px 0px;
+}
+
+.navbar.dahsboard-nav .navbar-nav li.nav-item {
+    border-right: 1px solid gray;
+    padding: 5px 10px;
+}
+
+.navbar.dahsboard-nav .navbar-nav li.nav-item.active {
+    background-color: gold;   
+}
+
+.navbar.dahsboard-nav .navbar-nav li.nav-item:hover {
+    background-color: gold;
+    color: black;
+}
+
+.navbar.dahsboard-nav .navbar-nav li.nav-item:hover a.nav-link {
+    color: black;
+}
+
+.navbar.dahsboard-nav .navbar-nav li.nav-item a.nav-link{
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.navbar.dahsboard-nav .navbar-nav li.nav-item.active a.nav-link {
+    color: black;
+}
+
+
+.navbar.dahsboard-nav .navbar-nav .logged-in .nav-item:hover{
+    background-color: inherit;
+}
+
+.navbar.dahsboard-nav .navbar-nav .logged-in .nav-item .nav-link{
+    color:antiquewhite;
+}
+
+.navbar.dahsboard-nav .navbar-nav.logged-in li.nav-item:hover a.nav-link{
+    color:white!important;
+}
+
+.navbar.dahsboard-nav .navbar-nav.logged-in li.nav-item:hover a.nav-link b{
+    text-decoration: underline;
+}

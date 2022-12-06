@@ -1,0 +1,27 @@
+.register-form {
+  padding: 20px;
+}
+
+.register-form label {
+  color: white;
+}
+
+.register-form h1 {
+  color: white;
+}
+
+.register-form p {
+  color: white;
+}
+
+.register-form input {
+  font-size: 18px;
+}
+
+.register-form hr {
+  border-top: 0.5px solid aquamarine;
+}
+
+.register-form .submit-btn {
+  padding: 20px;
+}
