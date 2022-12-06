@@ -30,12 +30,11 @@ if (isset($_POST['img_submit'])) {
     $productName         = $_POST['pname'];
     $buy                 = $_POST['buy'];
     $image               = $_FILES['pimage'];
-    $image_name        = $_FILES['pimage']['name'];
+    $image_name          = $_FILES['pimage']['name'];
     $image_tmp           = $_FILES['pimage']['tmp_name'];
     $image_type          = $_FILES['pimage']['type'];
     $image_size          = $_FILES['pimage']['size'];
 
-    print_r($image);
     $img = rand(1, 999999) . '-' . $image_name;
     move_uploaded_file($image_tmp, "images/" . $img);
 }
@@ -115,7 +114,9 @@ if (isset($_POST['img_submit'])) {
                             <thead class="thead text-warning">
                                 <tr>
                                     <th data-field="date" data-filter-control="select" data-sortable="true">Product Name</th>
+                                    <th data-field="note" data-sortable="true">Image</th>
                                     <th data-field="examen" data-filter-control="select" data-sortable="true"> Bought</th>
+                                    <th data-field="note" data-sortable="true">Sold</th>
                                     <th data-field="note" data-sortable="true">Sold</th>
                                     <th data-field="note" data-sortable="true">Available in Stock</th>
                                     <th data-field="note" data-sortable="true">Actions</th>
@@ -129,6 +130,9 @@ if (isset($_POST['img_submit'])) {
                                 ?>
                                         <tr>
                                             <td class="text-capitalize"><?php echo $row['name']; ?></td>
+                                            <td class="">
+                                                <img src="<?php echo ""; ?>" alt="<?php echo $row['name'] ?>">
+                                            </td>
                                             <td class=""><?php echo  $row['bought']; ?></td>
                                             <td class=""><?php echo  $row['sold']; ?></td>
                                             <td class=""><?php echo  $stock; ?></td>
