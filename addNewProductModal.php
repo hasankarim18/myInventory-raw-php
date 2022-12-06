@@ -1,24 +1,4 @@
- <?php
 
-    // if (isset($_POST['img_submit'])) {
-    //     $productName         = $_POST['pname'];
-    //     $buy                 = $_POST['buy'];
-    //     $image               = $_FILES['pimage'];
-    //     //  $image_name          = $_FILES['name'];
-    //     $image_tmp           = $_FILES['pimage']['tmp_name'];
-    //     $image_type          = $_FILES['pimage']['type'];
-    //     $image_size          = $_FILES['pimage']['size'];
-
-
-    //     move_uploaded_file($image_tmp, 'images/');
-
-    ?>
-
-     <p class="text-white"> <?php // print_r($image); ?> </p>
- <?php
-   // }
-
-    ?>
 
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
@@ -44,7 +24,7 @@
                              <input name="pimage" class="pl-20 from-control" type="file" id="pimage" required>
                          </div>
                          <div class="" style="text-align: center;">
-                             <button type="submit" value="submit" name="img_submit" class="btn btn-success form-control">Add</button>
+                             <button type="submit" value="submit" name="add_product" class="btn btn-success form-control">Add</button>
                          </div>
                      </form>
                  </div>

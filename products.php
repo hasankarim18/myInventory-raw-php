@@ -1,12 +1,13 @@
 <?php include './inc/header.php'; ?>
 
-<?php include './inc//navigation.php'; ?>
+<?php include './inc/navigation.php'; ?>
 
 <?php
 
 $sql = "SELECT * FROM products";
 
 $products = $conn->query($sql);
+
 
 $sql = "SELECT COUNT(*) as total_products FROM products";
 $totalProducts = mysqli_fetch_assoc($conn->query($sql));
@@ -18,6 +19,7 @@ $totalBoughts = mysqli_fetch_assoc($conn->query($sql));
 $sql = "SELECT SUM(sold) as total_sold FROM products";
 $totalSold = mysqli_fetch_assoc($conn->query($sql));
 
+
 $stockAvailable = $totalBoughts['total_bought'] - $totalSold['total_sold'];
 
 
@@ -26,7 +28,7 @@ $stockAvailable = $totalBoughts['total_bought'] - $totalSold['total_sold'];
 <?php
 // add products
 
-if (isset($_POST['img_submit'])) {
+if (isset($_POST['add_product'])) {
     $productName         = $_POST['pname'];
     $buy                 = $_POST['buy'];
     $image               = $_FILES['pimage'];
@@ -35,13 +37,25 @@ if (isset($_POST['img_submit'])) {
     $image_type          = $_FILES['pimage']['type'];
     $image_size          = $_FILES['pimage']['size'];
 
+
     $img = rand(1, 999999) . '-' . $image_name;
+    $addProductSql = "INSERT INTO `products`( `name`, `bought`, `image`) VALUES ('$productName','$buy','$img')";
+
+    $conn->query($addProductSql);
+
     move_uploaded_file($image_tmp, "images/" . $img);
+    //unlink();
+    header('Location:products.php');
 }
 ?>
 
 
 <div class="pt-4">
+    <div class="p-4 bg-white">
+        <?php
+        //  echo $productName;
+        ?>
+    </div>
     <div class="row w-100 p-0 m-0" style="padding-top: 40px;">
         <div class="col-9">
             <div class="pb-4">
@@ -131,7 +145,9 @@ if (isset($_POST['img_submit'])) {
                                         <tr>
                                             <td class="text-capitalize"><?php echo $row['name']; ?></td>
                                             <td class="">
-                                                <img src="<?php echo ""; ?>" alt="<?php echo $row['name'] ?>">
+                                                <div class="p-1 bg-white rounded">
+                                                    <img width="100px" height="75px" src="<?php echo "images/" . $row['image']; ?>" alt="<?php echo $row['name'] ?>">
+                                                </div>
                                             </td>
                                             <td class=""><?php echo  $row['bought']; ?></td>
                                             <td class=""><?php echo  $row['sold']; ?></td>
